@@ -5,3 +5,8 @@ android-studio () {
 open () {
     xdg-open "$@" &> /dev/null
 }
+
+cds () {
+  cd "$@"
+  ls
+}

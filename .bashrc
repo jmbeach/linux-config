@@ -123,7 +123,7 @@ export NVM_DIR="$HOME/.nvm"
 export BROWSER="/usr/bin/google-chrome-stable"
 export CLOUD_PROVIDER="ec2"
 export GOPATH=$HOME/go
-export PATH=$PATH:~/bin:~/.dotnet/tools
+export PATH=$PATH:~/bin:~/.dotnet/tools:~/.local/kitty.app/bin/
 export EDITOR=code
 
 source ~/.secrets

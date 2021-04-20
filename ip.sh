@@ -17,3 +17,7 @@ disable-ip6 () {
 flush-dns () {
   sudo /etc/init.d/networking restart
 }
+
+show-wifi-icon () {
+  nohup nm-applet &> /dev/null &
+}

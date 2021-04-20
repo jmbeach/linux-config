@@ -10,3 +10,7 @@ cds () {
   cd "$@"
   ls
 }
+
+lsf () {
+  find . -maxdepth 1 -not -type d
+}

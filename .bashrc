@@ -143,3 +143,7 @@ alias clip="xclip -selection clipboard"
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$HOME/Android/Sdk/tools/bin:$PATH"
 export VAGRANT_HOME="/media/rift/vms/vagrant"
+
+if [ "$TERM" = "xterm-kitty" ]; then
+    set-background-pink
+fi

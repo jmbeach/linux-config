@@ -128,6 +128,7 @@ export EDITOR=code
 
 source ~/.secrets
 source ~/private-profile/remoting.sh
+source ~/private-profile/file-utils.sh
 source ~/profile/kitty.sh
 source ~/profile/ip.sh
 source ~/profile/audio.sh
@@ -140,4 +141,5 @@ alias clip="xclip -selection clipboard"
 
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
+export PATH="$HOME/gems/bin:$HOME/Android/Sdk/tools/bin:$PATH"
+export VAGRANT_HOME="/media/rift/vms/vagrant"

@@ -212,7 +212,7 @@ bar {
 for_window [class=".*"] border pixel 0
 hide_edge_borders both
 
-exec /usr/bin/compton --config ~/.config/compton/compton.conf
+exec /usr/bin/picom --config ~/.config/picom/picom.conf
 #interactive screenshot by pressing printscreen
 bindsym Print exec gnome-screenshot -i 
 #crop-area screenshot by pressing Mod + printscreen

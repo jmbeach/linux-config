@@ -37,5 +37,85 @@
 			"export class $1Module {",
 			"}"
 		]
+	},
+	"Angular Service": {
+		"prefix": "ng-svc",
+		"body": [
+			"import { Injectable } from '@angular/core';",
+			"",
+			"@Injectable()",
+			"export class $1 {",
+			"}"
+		]
+	},
+	"Angular Action": {
+		"prefix": "ng-action",
+		"body": [
+			"export class $1 implements Action {",
+			"  readonly type: string = $2;",
+			"}"
+		]
+	},
+	"Angular Selector Test": {
+		"prefix": "ng-test-select",
+		"body": [
+			"import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';",
+			"import { Store, StoreModule } from '@ngrx/store';",
+			"import { AppComponent } from 'src/app/app.component';",
+			"import * as fromRoot from 'src/app/root-store/global-store/store/reducers';",
+			"import { featureKey, metaReducers, reducers } from '../reducers';",
+			"import { take } from 'rxjs/operators';",
+			"describe('$1', () => {",
+			"  let store: Store;",
+			"  let spectator: Spectator<AppComponent>;",
+			"  const createComponent = createComponentFactory({",
+			"    component: AppComponent,",
+			"    shallow: true,",
+			"    imports: [",
+			"      StoreModule.forRoot({}),",
+			"      StoreModule.forFeature('global', fromRoot.reducers),",
+			"      StoreModule.forFeature(featureKey, reducers, { metaReducers })",
+			"    ]",
+			"  });",
+			"",
+			"  beforeEach(() => {",
+			"    spectator = createComponent();",
+			"    store = spectator.inject(Store);",
+			"  });",
+			"",
+			"  it('should $2', async () => {",
+			"    let value = await store.select($3).pipe(take(1)).toPromise();",
+			"    expect(value).toEqual($4);",
+			"    store.dispatch($5);",
+			"    value = await store.select($3).pipe(take(1)).toPromise();",
+			"    expect(value).toEqual($6);",
+			" });",
+			"});"
+		]
+	},
+	"Angular Effect Test Action": {
+		"prefix": "ng-test-effect-action",
+		"body": [
+			"describe('$1', () => {",
+			"  it('should $2 on success', () => {",
+			"    const action = $3;",
+			"    $4.$5.mockReturnValue(of($6));",
+			"    const expectedAction = $7;",
+			"    actions$ = hot('-a', { a: action });",
+			"    const expected = cold('-b', { b: expectedAction });",
+			"    expect(effects.$8).toBeObservable(expected);",
+			"  });",
+			"",
+			"  it('should $9 on error', () => {",
+			"    const action = $3;",
+			"    const expectedError = new Error('some error');",
+			"    $4.$5.mockReturnValue(throwError(expectedError));",
+			"    const expectedAction = $10({ error: expectedError });",
+			"    actions$ = hot('-a', { a: action });",
+			"    const expected = cold('-b', { b: expectedAction });",
+			"    expect(effects.$8).toBeObservable(expected);",
+			"  });",
+			"});"
+		]
 	}
 }

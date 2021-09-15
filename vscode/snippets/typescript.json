@@ -25,6 +25,18 @@
 			"}"
 		]
 	},
+	"Angular Directive": {
+		"prefix": "ng-dir",
+		"body": [
+			"import { Directive } from '@angular/core';",
+			"",
+			"@Directive({",
+			"  selector: '[$2]'",
+			"})",
+			"export class $1Directive {",
+			"}"
+		]
+	},
 	"Angular Module": {
 		"prefix": "ng-mod",
 		"body": [
@@ -116,6 +128,38 @@
 			"    expect(effects.$8).toBeObservable(expected);",
 			"  });",
 			"});"
+		]
+	},
+	"Angular Integration Test": {
+		"prefix": "ng-test-integration",
+		"body": [
+			"import { CommonModule } from '@angular/common';",
+			"import { HttpTestingController } from '@angular/common/http/testing';",
+			"import { createComponentFactory, Spectator } from '@ngneat/spectator';",
+			"import { EffectsModule } from '@ngrx/effects';",
+			"import { Store, StoreModule } from '@ngrx/store';",
+			"",
+			"const createComponent = createComponentFactory({",
+			"  component: $1,",
+			"  shallow: false,",
+			"  imports: [CommonModule, StoreModule.forRoot({}), EffectsModule.forRoot()]",
+			"});",
+			"",
+			"let spectator: Spectator<$1>;",
+			"let store: Store;",
+			"let httpTestingController: HttpTestingController;",
+			"",
+			"beforeEach(() => {",
+			"  spectator = createComponent();",
+			"  store = spectator.inject(Store);",
+			"  httpTestingController = spectator.inject(HttpTestingController);",
+			"});",
+			"",
+			"afterEach(() => {",
+			"  httpTestingController.verify();",
+			"});",
+			"",
+			"it('$2', () => {});"
 		]
 	}
 }

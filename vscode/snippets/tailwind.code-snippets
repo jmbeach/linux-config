@@ -1,0 +1,67 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Tailwind color button": {
+		"scope": "html,css,javascript,typescript",
+		"prefix": "tw-btn-color",
+		"body": [
+			"<button class=\"mt-4 focus:ring-2 focus:ring-$1-500 focus:ring-offset-2 hover:bg-$1-700 bg-$1-600 text-white font-medium text-sm border border-transparent rounded-md shadow-sm px-4 py-2\">$2</button>"
+		]
+	},
+	"Tailwind basic button": {
+		"scope": "html,css,javascript,typescript",
+		"prefix": "tw-btn",
+		"body": [
+			"<button class=\"mt-4 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 hover:bg-gray-900 bg-black text-white font-medium text-sm border border-transparent rounded-md shadow-sm px-4 py-2\">$1</button>"
+		]
+	},
+	"Tailwind outline button": {
+		"scope": "html,css,javascript,typescript",
+		"prefix": "tw-btn-outline",
+		"body": [
+			"<button class=\"mt-4 focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 flex items-center justify-center text-black font-semibold text-sm rounded-md border border-gray-300 px-4 py-2 hover:bg-gray-100 hover:text-gray-900\">$1</button>"
+		]
+	},
+	"Tailwind form": {
+		"scope": "html,css,javascript,typescript",
+		"prefix": "tw-form",
+		"body": [
+			"<form class=\"pt-6 py-8 px-8 rounded shadow-md mt-1 bg-white\">$1</form>"
+		]
+	},
+	"Tailwind h3": {
+		"scope": "html,css,javascript,typescript",
+		"prefix": "tw-h3",
+		"body": [
+			"<h3 class=\"mb-4 font-bold text-lg text-gray-800\">$1</h3>"
+		]
+	},
+	"Tailwind label": {
+		"scope": "html,css,javascript,typescript",
+		"prefix": "tw-lbl",
+		"body": [
+			"<label class=\"block text-sm font-bold text-gray-700 mb-2\" for=\"$1\">$2</label>"
+		]
+	},
+	"Tailwind textbox": {
+		"scope": "html,css,javascript,typescript",
+		"prefix": "tw-tb",
+		"body": [
+			"<input class=\"border leading-tight px-3 py-2 rounded shadow text-gray-700 w-full mb-4\" type=\"text\" name=\"$1\">"
+		]
+	}
+}

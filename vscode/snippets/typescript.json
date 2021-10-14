@@ -1,0 +1,165 @@
+{
+	// Place your snippets for typescript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Angular Dummy/Presnetation Component": {
+		"prefix": "ng-comp",
+		"body": [
+			"import { Component } from '@angular/core';",
+			"",
+			"@Component({",
+			"  selector: '$2',",
+			"  template: `$3`",
+			"})",
+			"export class $1Component {",
+			"}"
+		]
+	},
+	"Angular Directive": {
+		"prefix": "ng-dir",
+		"body": [
+			"import { Directive } from '@angular/core';",
+			"",
+			"@Directive({",
+			"  selector: '[$2]'",
+			"})",
+			"export class $1Directive {",
+			"}"
+		]
+	},
+	"Angular Module": {
+		"prefix": "ng-mod",
+		"body": [
+			"import { NgModule } from '@angular/core';",
+			"",
+			"@NgModule({",
+			"  imports: [],",
+			"  declarations: [],",
+			"})",
+			"export class $1Module {",
+			"}"
+		]
+	},
+	"Angular Service": {
+		"prefix": "ng-svc",
+		"body": [
+			"import { Injectable } from '@angular/core';",
+			"",
+			"@Injectable()",
+			"export class $1 {",
+			"}"
+		]
+	},
+	"Angular Action": {
+		"prefix": "ng-action",
+		"body": [
+			"export class $1 implements Action {",
+			"  readonly type: string = $2;",
+			"}"
+		]
+	},
+	"Angular Selector Test": {
+		"prefix": "ng-test-select",
+		"body": [
+			"import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';",
+			"import { Store, StoreModule } from '@ngrx/store';",
+			"import { AppComponent } from 'src/app/app.component';",
+			"import * as fromRoot from 'src/app/root-store/global-store/store/reducers';",
+			"import { featureKey, metaReducers, reducers } from '../reducers';",
+			"import { take } from 'rxjs/operators';",
+			"describe('$1', () => {",
+			"  let store: Store;",
+			"  let spectator: Spectator<AppComponent>;",
+			"  const createComponent = createComponentFactory({",
+			"    component: AppComponent,",
+			"    shallow: true,",
+			"    imports: [",
+			"      StoreModule.forRoot({}),",
+			"      StoreModule.forFeature('global', fromRoot.reducers),",
+			"      StoreModule.forFeature(featureKey, reducers, { metaReducers })",
+			"    ]",
+			"  });",
+			"",
+			"  beforeEach(() => {",
+			"    spectator = createComponent();",
+			"    store = spectator.inject(Store);",
+			"  });",
+			"",
+			"  it('should $2', async () => {",
+			"    let value = await store.select($3).pipe(take(1)).toPromise();",
+			"    expect(value).toEqual($4);",
+			"    store.dispatch($5);",
+			"    value = await store.select($3).pipe(take(1)).toPromise();",
+			"    expect(value).toEqual($6);",
+			" });",
+			"});"
+		]
+	},
+	"Angular Effect Test Action": {
+		"prefix": "ng-test-effect-action",
+		"body": [
+			"describe('$1', () => {",
+			"  it('should $2 on success', () => {",
+			"    const action = $3;",
+			"    $4.$5.mockReturnValue(of($6));",
+			"    const expectedAction = $7;",
+			"    actions$ = hot('-a', { a: action });",
+			"    const expected = cold('-b', { b: expectedAction });",
+			"    expect(effects.$8).toBeObservable(expected);",
+			"  });",
+			"",
+			"  it('should $9 on error', () => {",
+			"    const action = $3;",
+			"    const expectedError = new Error('some error');",
+			"    $4.$5.mockReturnValue(throwError(expectedError));",
+			"    const expectedAction = $10({ error: expectedError });",
+			"    actions$ = hot('-a', { a: action });",
+			"    const expected = cold('-b', { b: expectedAction });",
+			"    expect(effects.$8).toBeObservable(expected);",
+			"  });",
+			"});"
+		]
+	},
+	"Angular Integration Test": {
+		"prefix": "ng-test-integration",
+		"body": [
+			"import { CommonModule } from '@angular/common';",
+			"import { HttpTestingController } from '@angular/common/http/testing';",
+			"import { createComponentFactory, Spectator } from '@ngneat/spectator';",
+			"import { EffectsModule } from '@ngrx/effects';",
+			"import { Store, StoreModule } from '@ngrx/store';",
+			"",
+			"const createComponent = createComponentFactory({",
+			"  component: $1,",
+			"  shallow: false,",
+			"  imports: [CommonModule, StoreModule.forRoot({}), EffectsModule.forRoot()]",
+			"});",
+			"",
+			"let spectator: Spectator<$1>;",
+			"let store: Store;",
+			"let httpTestingController: HttpTestingController;",
+			"",
+			"beforeEach(() => {",
+			"  spectator = createComponent();",
+			"  store = spectator.inject(Store);",
+			"  httpTestingController = spectator.inject(HttpTestingController);",
+			"});",
+			"",
+			"afterEach(() => {",
+			"  httpTestingController.verify();",
+			"});",
+			"",
+			"it('$2', () => {});"
+		]
+	}
+}

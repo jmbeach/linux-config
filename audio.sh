@@ -9,3 +9,7 @@ listen-to-me () {
 stop-listening () {
     pactl unload-module module-loopback
 }
+
+restart-pulse-audio () {
+  pulseaudio -k && pactl load-module module-detect
+}

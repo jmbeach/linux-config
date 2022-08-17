@@ -233,4 +233,10 @@ bindsym $mod+c move absolute position center
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
+bindsym $mod+n exec "pwsh -NoLogo -NoProfile -C '. ~/code/github/jmbeach/custom-powershell-scripts/ssh.ps1;. ~/code/bitbucket/private-powershell-scripts/cmus.ps1;Next-CmusSong'"
+bindsym $mod+p exec "pwsh -NoLogo -NoProfile -C '. ~/code/github/jmbeach/custom-powershell-scripts/ssh.ps1;. ~/code/bitbucket/private-powershell-scripts/cmus.ps1;Prev-CmusSong'"
+bindsym $mod+Shift+p exec "pwsh -NoLogo -NoProfile -C '. ~/code/github/jmbeach/custom-powershell-scripts/ssh.ps1;. ~/code/bitbucket/private-powershell-scripts/cmus.ps1;Pause-CmusSong'"
+bindsym $mod+Control+Shift+minus exec "pwsh -NoLogo -NoProfile -C '. ~/code/github/jmbeach/custom-powershell-scripts/ssh.ps1;. ~/code/bitbucket/private-powershell-scripts/cmus.ps1;Set-CmusVolumeDown'"
+bindsym $mod+equal exec "pwsh -NoLogo -NoProfile -C '. ~/code/github/jmbeach/custom-powershell-scripts/ssh.ps1;. ~/code/bitbucket/private-powershell-scripts/cmus.ps1;Set-CmusVolumeUp'"
+
 border_radius 10

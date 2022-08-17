@@ -11,6 +11,6 @@ general {
 order += "tztime local"
 
 tztime local {
-		format = "<span background='#DCF763' color='#222'> %time </span>"
-		format_time = "%a %-d %b %H:%M"
+		format = "<span color='#dddddd'> %time </span>"
+		format_time = "%a %-d %b %I:%M %p"
 }

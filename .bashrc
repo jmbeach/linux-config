@@ -134,6 +134,7 @@ source ~/profile/ip.sh
 source ~/profile/audio.sh
 source ~/profile/man.sh
 source ~/profile/program-wrappers.sh
+source ~/profile/desktop.sh
 
 
 alias clip="xclip -selection clipboard"
@@ -147,3 +148,4 @@ export VAGRANT_HOME="/media/rift/vms/vagrant"
 if [ "$TERM" = "xterm-kitty" ]; then
     set-background-pink
 fi
+
